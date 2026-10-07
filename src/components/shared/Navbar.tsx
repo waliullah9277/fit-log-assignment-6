@@ -6,7 +6,7 @@ import Image from 'next/image';
 const Navbar = () => {
 
     const links = <>
-        <li><Link href="/">Workouts</Link></li>
+        <li><Link href="/workouts">Workouts</Link></li>
         <li><Link href="/my-plan">My Plan</Link></li>
     </>
     return (
