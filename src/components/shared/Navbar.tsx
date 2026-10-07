@@ -45,7 +45,7 @@ const Navbar = () => {
     );
 
     return (
-        <nav className="sticky top-0 z-50 border-b border-white/10 bg-base-100/95 shadow-sm backdrop-blur-md">
+        <nav className="sticky top-0 z-50 border-b bg-[#090A0D] border-white/10 shadow-sm backdrop-blur-md">
             <div className="navbar container mx-auto">
                 {/* Navbar Start */}
                 <div className="navbar-start">

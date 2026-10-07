@@ -1,5 +1,6 @@
 'use client';
 
+import Banner from '@/components/homepage/Banner';
 import AddToPlanCard from '@/components/shared/AddToPlanCard';
 import SaveForLaterCard from '@/components/shared/SaveForLaterCard';
 import { WorkoutContext } from '@/context/WorkoutContext';
