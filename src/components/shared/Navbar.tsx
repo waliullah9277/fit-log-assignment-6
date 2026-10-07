@@ -7,7 +7,7 @@ const Navbar = () => {
 
     const links = <>
         <li><Link href="/">Workouts</Link></li>
-        <li><Link href="/workouts">My Plan</Link></li>
+        <li><Link href="/my-plan">My Plan</Link></li>
     </>
     return (
         <nav className='bg-base-100 shadow-sm'>
