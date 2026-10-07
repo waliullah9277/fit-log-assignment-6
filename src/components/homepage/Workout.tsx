@@ -37,7 +37,7 @@ const Workout = async () => {
             <div className="grid grid-cols-1 gap-4 md:grid-cols-2 lg:grid-cols-3">
                 {workoutData.map((workout: IWorkout) => {
                     return (
-                        <Link key={workout.id} href={`/exercise/${workout.id}`}
+                        <Link key={workout.id} href={`/workouts/${workout.id}`}
                             className="group overflow-hidden rounded-2xl border border-white/10 bg-[#15171D] transition-all duration-300 hover:-translate-y-1 hover:border-[#C2F800]/40">
                             <WorkoutCard workout={workout}></WorkoutCard>
                         </Link>
