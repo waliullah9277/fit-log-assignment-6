@@ -14,11 +14,7 @@ const MyPlan = () => {
 
     const currentWorkout = activeTab === "today" ? addToPlan : saveForLater;
 
-    const totalExercise = currentWorkout.reduce(
-        (total: number) =>
-            total + addToPlan.length,
-        0
-    );
+    const totalExercise = currentWorkout.length;
 
     const totalMinutes = currentWorkout.reduce(
         (total: number, workout: IWorkout) =>

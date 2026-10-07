@@ -1,10 +1,12 @@
+import { WorkoutContext } from '@/context/WorkoutContext';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
+import { FaFire } from 'react-icons/fa';
 import { FiClock, FiStar, FiX } from 'react-icons/fi';
-import { GiFire } from 'react-icons/gi';
 
-const SaveForLaterCard = ({workout}) => {
+const SaveForLaterCard = ({ workout }) => {
+    const { removeFromSave } = useContext(WorkoutContext)
     return (
         <div>
             <div
@@ -41,7 +43,7 @@ const SaveForLaterCard = ({workout}) => {
                         </div>
 
                         <div className="flex items-center gap-1.5">
-                            <GiFire className="text-lg text-[#C2F800]" />
+                            <FaFire className="text-lg text-[#C2F800]" />
                             <span>
                                 {workout.caloriesBurned} kcal
                             </span>
@@ -68,6 +70,7 @@ const SaveForLaterCard = ({workout}) => {
 
 
                     <button
+                        onClick={() => removeFromSave(workout.id)}
                         type="button"
                         className="cursor-pointer p-2 text-gray-300 hover:text-red-400"
                     >

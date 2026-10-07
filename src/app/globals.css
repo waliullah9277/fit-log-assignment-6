@@ -2,3 +2,21 @@
 @plugin "daisyui";
 
 
+.fitlog-toast-container {
+    top: 64px !important;
+    right: 16px !important;
+    width: 220px !important;
+    gap: 3px !important;
+}
+
+.fitlog-toast-container .Toastify__toast {
+    margin: 0 !important;
+    min-height: 0 !important;
+    width: 220px !important;
+    padding: 7px 10px !important;
+    border-radius: 8px !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background: #191c22 !important;
+    color: #fff !important;
+    font-size: 13px !important;
+}

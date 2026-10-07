@@ -1,10 +1,12 @@
+import { WorkoutContext } from '@/context/WorkoutContext';
 import Image from 'next/image';
 import Link from 'next/link';
-import React from 'react';
+import React, { useContext } from 'react';
+import { FaFire } from 'react-icons/fa';
 import { FiCheck, FiClock, FiStar, FiX } from 'react-icons/fi';
-import { GiFire } from 'react-icons/gi';
 
-const AddToPlanCard = ({workout}) => {
+const AddToPlanCard = ({ workout }) => {
+    const { removeFromPlan, markAsDoneFromPlan } = useContext(WorkoutContext)
     return (
         <div>
             <div
@@ -43,7 +45,7 @@ const AddToPlanCard = ({workout}) => {
                         </div>
 
                         <div className="flex items-center gap-1.5">
-                            <GiFire className="text-lg text-[#C2F800]" />
+                            <FaFire className="text-lg text-[#C2F800]" />
                             <span>
                                 {workout.caloriesBurned} kcal
                             </span>
@@ -70,6 +72,7 @@ const AddToPlanCard = ({workout}) => {
                     </Link>
 
                     <button
+                        onClick={() => markAsDoneFromPlan(workout.id)}
                         type="button"
                         className="flex cursor-pointer items-center gap-2 rounded-full bg-[#C2F800] px-5 py-2.5 text-sm font-semibold text-black hover:bg-[#d5ff45]"
                     >
@@ -78,6 +81,8 @@ const AddToPlanCard = ({workout}) => {
                     </button>
 
                     <button
+                        onClick={() => removeFromPlan(workout.id)}
+                        
                         type="button"
                         className="cursor-pointer p-2 text-gray-300 hover:text-red-400"
                     >
