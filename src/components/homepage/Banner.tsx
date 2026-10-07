@@ -1,6 +1,7 @@
 import React from 'react';
 import BannerImg from "@/assets/banner.png"
 import Image from 'next/image';
+import Link from 'next/link';
 
 const Banner = () => {
     return (
@@ -22,11 +23,14 @@ const Banner = () => {
                         into {`today's`} plan, and watch the {`week's`} work add up.
                     </p>
 
-                    <button
-                        className="rounded-3xl bg-[#C2F800] px-7 py-3 text-center text-sm font-bold cursor-pointer text-[#15171D]">
-                        Browse Workouts
-                        <span className="ml-2 text-lg">→</span>
-                    </button>
+                    <Link href="/#library" >
+                        <button
+                            className="rounded-3xl bg-[#C2F800] px-7 py-3 text-center text-sm font-bold cursor-pointer text-[#15171D]">
+                            Browse Workouts
+                            <span className="ml-2 text-lg">→</span>
+                        </button>
+                    </Link>
+
                 </div>
 
                 {/* Right Image */}

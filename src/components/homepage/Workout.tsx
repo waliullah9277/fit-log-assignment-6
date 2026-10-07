@@ -20,11 +20,11 @@ const Workout = async () => {
     const workoutData = await getWorkout();
 
     return (
-        <section className="py-8">
+        <section  className="py-8">
 
             {/* Section Header */}
             <div className="mb-6">
-                <h2 className="text-3xl font-extrabold uppercase tracking-tight text-white">
+                <h2 id='library' className="text-3xl font-extrabold uppercase tracking-tight text-white">
                     The Library
                 </h2>
 
