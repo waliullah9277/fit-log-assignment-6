@@ -1,7 +1,7 @@
+import AddToPlanButton from '@/components/workoutDetails/AddToPlanButton';
+import SaveForLatterButton from '@/components/workoutDetails/SaveForLatterButton';
 import { IWorkout } from '@/types/exercise.type';
 import Image from 'next/image';
-import { FiBookmark } from 'react-icons/fi';
-import { GiWeightLiftingUp } from 'react-icons/gi';
 
 interface IWorkoutDetailsPageProps {
     params: Promise<{ id: string }>;
@@ -192,15 +192,9 @@ const WorkoutDetailPage = async ({
                     {/* Action Buttons */}
                     <div className="mt-6 flex flex-wrap gap-3">
 
-                        <button className="flex items-center gap-2 rounded-xl bg-[#C2F800] px-5 py-3 text-sm font-semibold text-black hover:bg-[#d5ff45] cursor-pointer">
-                            <GiWeightLiftingUp className="text-lg" />
-                            Add to today&apos;s plan
-                        </button>
+                        <AddToPlanButton workout={workout}></AddToPlanButton>
 
-                        <button className="flex cursor-pointer items-center gap-2 rounded-xl border border-white/30 px-5 py-3 text-sm font-semibold text-white transition-colors duration-200 hover:border-white hover:bg-gray-900">
-                            <FiBookmark className="text-lg" />
-                            Save for later
-                        </button>
+                        <SaveForLatterButton workout={workout}></SaveForLatterButton>
 
                     </div>
                 </div>
