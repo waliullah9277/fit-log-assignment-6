@@ -1,12 +1,19 @@
-import { WorkoutContext } from '@/context/WorkoutContext';
+import { IWorkoutContext, WorkoutContext } from '@/context/WorkoutContext';
+import { IWorkout } from '@/types/exercise.type';
 import Image from 'next/image';
 import Link from 'next/link';
 import React, { useContext } from 'react';
 import { FaFire } from 'react-icons/fa';
 import { FiClock, FiStar, FiX } from 'react-icons/fi';
 
-const SaveForLaterCard = ({ workout }) => {
-    const { removeFromSave } = useContext(WorkoutContext)
+interface ISaveForLaterProps {
+    workout: IWorkout;
+}
+
+const SaveForLaterCard = ({ workout } : ISaveForLaterProps) => {
+    const { removeFromSave } = useContext(WorkoutContext) as IWorkoutContext
+
+
     return (
         <div>
             <div

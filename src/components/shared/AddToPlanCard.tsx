@@ -1,18 +1,26 @@
-import { WorkoutContext } from '@/context/WorkoutContext';
-import Image from 'next/image';
-import Link from 'next/link';
-import React, { useContext } from 'react';
-import { FaFire } from 'react-icons/fa';
-import { FiCheck, FiClock, FiStar, FiX } from 'react-icons/fi';
+"use client";
 
-const AddToPlanCard = ({ workout }) => {
-    const { removeFromPlan, markAsDoneFromPlan } = useContext(WorkoutContext)
+import { IWorkoutContext, WorkoutContext } from "@/context/WorkoutContext";
+import { IWorkout } from "@/types/exercise.type";
+import Image from "next/image";
+import Link from "next/link";
+import React, { useContext } from "react";
+import { FaFire } from "react-icons/fa";
+import { FiCheck, FiClock, FiStar, FiX } from "react-icons/fi";
+
+interface IAddToPlanProps {
+    workout: IWorkout;
+}
+
+const AddToPlanCard = ({ workout }: IAddToPlanProps) => {
+    const {
+        removeFromPlan,
+        markAsDoneFromPlan,
+    } = useContext(WorkoutContext) as IWorkoutContext;
+
     return (
         <div>
-            <div
-                key={workout.id}
-                className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-[#191C22] p-5 md:flex-row md:items-center"
-            >
+            <div className="flex flex-col gap-5 rounded-2xl border border-white/10 bg-[#191C22] p-5 md:flex-row md:items-center">
 
                 {/* Image */}
                 <div className="relative h-32 w-full shrink-0 overflow-hidden rounded-2xl md:h-32 md:w-48">
@@ -26,7 +34,6 @@ const AddToPlanCard = ({ workout }) => {
 
                 {/* Workout Info */}
                 <div className="flex-1">
-
                     <h3 className="text-xl font-extrabold uppercase tracking-wide text-white">
                         {workout.name}
                     </h3>
@@ -39,6 +46,7 @@ const AddToPlanCard = ({ workout }) => {
 
                         <div className="flex items-center gap-1.5">
                             <FiClock className="text-lg text-[#C2F800]" />
+
                             <span>
                                 {workout.duration} min
                             </span>
@@ -46,6 +54,7 @@ const AddToPlanCard = ({ workout }) => {
 
                         <div className="flex items-center gap-1.5">
                             <FaFire className="text-lg text-[#C2F800]" />
+
                             <span>
                                 {workout.caloriesBurned} kcal
                             </span>
@@ -53,6 +62,7 @@ const AddToPlanCard = ({ workout }) => {
 
                         <div className="flex items-center gap-1.5">
                             <FiStar className="text-lg text-[#C2F800]" />
+
                             <span>
                                 {workout.rating}
                             </span>
@@ -82,7 +92,6 @@ const AddToPlanCard = ({ workout }) => {
 
                     <button
                         onClick={() => removeFromPlan(workout.id)}
-                        
                         type="button"
                         className="cursor-pointer p-2 text-gray-300 hover:text-red-400"
                     >
@@ -90,7 +99,6 @@ const AddToPlanCard = ({ workout }) => {
                     </button>
 
                 </div>
-
             </div>
         </div>
     );

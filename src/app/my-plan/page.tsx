@@ -1,17 +1,18 @@
 'use client';
 
-import Banner from '@/components/homepage/Banner';
-import Workout from '@/components/homepage/Workout';
 import AddToPlanCard from '@/components/shared/AddToPlanCard';
 import SaveForLaterCard from '@/components/shared/SaveForLaterCard';
 import { WorkoutContext } from '@/context/WorkoutContext';
 import { IWorkout } from '@/types/exercise.type';
 import Link from 'next/link';
 import React, { useContext, useState } from 'react';
-import { MdDone } from 'react-icons/md';
+
 
 const MyPlan = () => {
-    const { addToPlan, saveForLater } = useContext(WorkoutContext);
+    const { addToPlan, saveForLater } = useContext(WorkoutContext) as {
+        addToPlan: IWorkout[]
+        saveForLater: IWorkout[];
+    }
 
     const [activeTab, setActiveTab] = useState<'today' | 'saved'>('today');
 

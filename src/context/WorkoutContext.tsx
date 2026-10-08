@@ -3,6 +3,19 @@ import { IWorkout } from "@/types/exercise.type";
 import { createContext, ReactNode, useState } from "react";
 import { toast } from "react-toastify";
 
+export interface IWorkoutContext {
+    addToPlan: IWorkout[];
+    saveForLater: IWorkout[];
+
+    handleAddToPlan: (workout: IWorkout) => void;
+    handleSaveForLater: (workout: IWorkout) => void;
+
+    removeFromPlan: (id: number) => void;
+    markAsDoneFromPlan: (id: number) => void;
+
+    removeFromSave: (id: number) => void;
+
+}
 
 export const WorkoutContext = createContext({})
 

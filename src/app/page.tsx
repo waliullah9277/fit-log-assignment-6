@@ -1,6 +1,5 @@
 import Banner from '@/components/homepage/Banner';
 import Workout from '@/components/homepage/Workout';
-import React from 'react';
 
 const HomePage = () => {
   return (

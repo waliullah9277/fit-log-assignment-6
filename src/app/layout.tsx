@@ -1,19 +1,15 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Oswald } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/shared/Navbar";
 import WorkoutProvider from "@/context/WorkoutContext";
 import { ToastContainer } from "react-toastify";
 import Footer from "@/components/shared/Footer";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const oswald = Oswald({
+  variable: "--font-oswald",
   subsets: ["latin"],
-});
-
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
-  subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
 });
 
 export const metadata: Metadata = {
@@ -25,16 +21,18 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
     <html
       lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      className={`${oswald.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className={`${oswald.className} min-h-full flex flex-col`}>
 
         <WorkoutProvider>
 
-          <Navbar></Navbar>
+          <Navbar />
 
           {children}
-          <Footer></Footer>
+
+          <Footer />
+
         </WorkoutProvider>
 
         <ToastContainer
@@ -48,7 +46,6 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           pauseOnHover
           theme="dark"
           toastClassName="fitlog-toast"
-          bodyClassName="!m-0 !p-0"
         />
 
       </body>

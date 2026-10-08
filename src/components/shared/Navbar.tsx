@@ -8,9 +8,13 @@ import Logo from '@/assets/logo.png';
 import Image from 'next/image';
 
 import { WorkoutContext } from '@/context/WorkoutContext';
+import { IWorkout } from '@/types/exercise.type';
 
 const Navbar = () => {
-    const { addToPlan, saveForLater } = useContext(WorkoutContext);
+    const { addToPlan, saveForLater } = useContext(WorkoutContext) as {
+        addToPlan: IWorkout[]
+        saveForLater: IWorkout[]
+    };
 
     const pathname = usePathname();
 
