@@ -1,19 +1,17 @@
-'use client';
+"use client";
 
-import Link from 'next/link';
-import React, { useContext } from 'react';
-import { usePathname } from 'next/navigation';
-
-import Logo from '@/assets/logo.png';
-import Image from 'next/image';
-
-import { WorkoutContext } from '@/context/WorkoutContext';
-import { IWorkout } from '@/types/exercise.type';
+import Link from "next/link";
+import React, { useContext } from "react";
+import { usePathname } from "next/navigation";
+import Logo from "@/assets/logo.png";
+import Image from "next/image";
+import { WorkoutContext } from "@/context/WorkoutContext";
+import { IWorkout } from "@/types/exercise.type";
 
 const Navbar = () => {
     const { addToPlan, saveForLater } = useContext(WorkoutContext) as {
-        addToPlan: IWorkout[]
-        saveForLater: IWorkout[]
+        addToPlan: IWorkout[];
+        saveForLater: IWorkout[];
     };
 
     const pathname = usePathname();
@@ -23,9 +21,9 @@ const Navbar = () => {
             <li>
                 <Link
                     href="/workouts"
-                    className={`transition-all duration-200 ${pathname.startsWith('/workouts')
-                            ? 'bg-[#191C22] font-semibold text-[#C2F800]'
-                            : 'text-gray-300 hover:bg-white/5 hover:text-white'
+                    className={`transition-all duration-200 ${pathname.startsWith("/workouts")
+                            ? "bg-[#191C22] font-semibold text-[#C2F800]"
+                            : "text-gray-300 hover:bg-white/5 hover:text-white"
                         }`}
                 >
                     Workouts
@@ -35,9 +33,9 @@ const Navbar = () => {
             <li>
                 <Link
                     href="/my-plan"
-                    className={`transition-all duration-200 ${pathname.startsWith('/my-plan')
-                            ? 'bg-[#191C22] font-semibold text-[#C2F800]'
-                            : 'text-gray-300 hover:bg-white/5 hover:text-white'
+                    className={`transition-all duration-200 ${pathname.startsWith("/my-plan")
+                            ? "bg-[#191C22] font-semibold text-[#C2F800]"
+                            : "text-gray-300 hover:bg-white/5 hover:text-white"
                         }`}
                 >
                     My Plan
@@ -47,10 +45,12 @@ const Navbar = () => {
     );
 
     return (
-        <nav className="sticky top-0 z-50 border-b bg-[#090A0D] border-white/10 shadow-sm backdrop-blur-md">
+        <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#090A0D]/95 shadow-sm backdrop-blur-md">
             <div className="navbar container mx-auto">
+
                 {/* Navbar Start */}
                 <div className="navbar-start">
+
                     {/* Mobile Menu */}
                     <div className="dropdown">
                         <div
@@ -96,7 +96,7 @@ const Navbar = () => {
                                 alt="Fit Log Logo"
                             />
 
-                            <div className="text-lg md:text-2xl font-bold">
+                            <div className="text-lg font-bold md:text-2xl">
                                 FITLOG
                             </div>
                         </Link>
@@ -111,7 +111,6 @@ const Navbar = () => {
                 </div>
 
                 {/* Navbar End */}
-
                 <div className="navbar-end gap-0.5 md:gap-1">
 
                     {/* Plan */}
@@ -139,9 +138,7 @@ const Navbar = () => {
 
                     {/* Saved */}
                     <Link href="/my-plan?tab=saved">
-                        <div
-                            className="group flex cursor-pointer items-center gap-1 rounded-xl px-2 py-1.5 transition-all duration-200 hover:bg-white/5 md:gap-2 md:rounded-2xl md:px-4 md:py-2"
-                        >
+                        <div className="group flex cursor-pointer items-center gap-1 rounded-xl px-2 py-1.5 transition-all duration-200 hover:bg-white/5 md:gap-2 md:rounded-2xl md:px-4 md:py-2">
                             <span className="text-xs font-semibold text-gray-300 transition-colors group-hover:text-white md:text-sm">
                                 Saved
                             </span>
@@ -153,8 +150,6 @@ const Navbar = () => {
                     </Link>
 
                 </div>
-
-
             </div>
         </nav>
     );
