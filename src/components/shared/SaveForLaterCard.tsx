@@ -63,7 +63,7 @@ const SaveForLaterCard = ({ workout }) => {
 
                     <Link
                         href={`/workouts/${workout.id}`}
-                        className="rounded-full border border-white/40 px-5 py-2.5 text-sm font-semibold text-white hover:border-white"
+                        className="rounded-full border border-white/40 px-5 py-1 text-sm font-semibold text-white hover:border-white"
                     >
                         View Details
                     </Link>

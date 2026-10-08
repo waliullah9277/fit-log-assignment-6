@@ -1,12 +1,14 @@
 'use client';
 
 import Banner from '@/components/homepage/Banner';
+import Workout from '@/components/homepage/Workout';
 import AddToPlanCard from '@/components/shared/AddToPlanCard';
 import SaveForLaterCard from '@/components/shared/SaveForLaterCard';
 import { WorkoutContext } from '@/context/WorkoutContext';
 import { IWorkout } from '@/types/exercise.type';
 import Link from 'next/link';
 import React, { useContext, useState } from 'react';
+import { MdDone } from 'react-icons/md';
 
 const MyPlan = () => {
     const { addToPlan, saveForLater } = useContext(WorkoutContext);
@@ -28,6 +30,25 @@ const MyPlan = () => {
             total + workout.caloriesBurned,
         0
     );
+
+    const [sortBy, setSortBy] = useState<"duration" | "calories" | "rating">("duration")
+
+    const sortWorkout = (workouts: IWorkout[]) => {
+        const sortedWorkout = [...workouts]
+
+        if (sortBy === "duration") {
+            sortedWorkout.sort((a, b) => a.duration - b.duration)
+        } else if (sortBy === "calories") {
+            sortedWorkout.sort((a, b) => a.caloriesBurned - b.caloriesBurned)
+        } else if (sortBy === "rating") {
+            sortedWorkout.sort((a, b) => b.rating - a.rating)
+        }
+
+        return sortedWorkout;
+
+    }
+
+    const sortedWorkout = sortWorkout(currentWorkout)
 
 
 
@@ -52,7 +73,7 @@ const MyPlan = () => {
                         Exercises
                     </p>
 
-                    <h3 className="mt-1 text-3xl font-bold text-white">
+                    <h3 className="mt-1 text-3xl font-bold text-[#C2F800]">
                         {totalExercise}
                     </h3>
                 </div>
@@ -81,13 +102,13 @@ const MyPlan = () => {
             </div>
 
             {/* Tabs */}
-            <div className="mb-6">
+            <div className="mb-6 flex justify-between items-center">
                 <div className="flex w-fit rounded-xl border border-white/10 bg-[#191C22] p-1">
                     {/* Today's Plan */}
                     <button
                         type="button"
                         onClick={() => setActiveTab('today')}
-                        className={`rounded-lg px-5 cursor-pointer py-2.5 text-sm font-semibold transition-all ${activeTab === 'today'
+                        className={`rounded-lg px-5 cursor-pointer py-1.5 text-sm font-semibold transition-all ${activeTab === 'today'
                             ? 'bg-[#15171D] text-[#C2F800]'
                             : 'text-gray-400 hover:text-white'
                             }`}
@@ -99,7 +120,7 @@ const MyPlan = () => {
                     <button
                         type="button"
                         onClick={() => setActiveTab('saved')}
-                        className={`rounded-lg px-5 cursor-pointer py-2.5 text-sm font-semibold transition-all ${activeTab === 'saved'
+                        className={`rounded-lg px-5 cursor-pointer py-1.5 text-sm font-semibold transition-all ${activeTab === 'saved'
                             ? 'bg-[#15171D] text-[#C2F800]'
                             : 'text-gray-400 hover:text-white'
                             }`}
@@ -107,6 +128,31 @@ const MyPlan = () => {
                         Saved
                     </button>
                 </div>
+
+                {/* Sort By */}
+                <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-[#191C22] p-1">
+                    <div className="px-3">
+                        <h2 className="text-sm font-semibold text-gray-400">
+                            Sort By
+                        </h2>
+                    </div>
+                    
+                    
+                    <select
+                        value={sortBy}
+                        onChange={(e) =>
+                            setSortBy(
+                                e.target.value as "duration" | "calories" | "rating"
+                            )
+                        }
+                        className="cursor-pointer rounded-lg border-0 bg-[#15171D] px-4 py-1.5 text-sm font-semibold text-[#C2F800] outline-none transition-all focus:ring-1 focus:ring-[#C2F800]"
+                    >
+                        <option value="duration"> Duration</option>
+                        <option value="calories">Calories</option>
+                        <option value="rating">Rating</option>
+                    </select>
+                </div>
+
             </div>
 
             {/* Tab Content */}
@@ -116,7 +162,7 @@ const MyPlan = () => {
                     <>
                         {addToPlan.length > 0 ? (
                             <div className="flex flex-col gap-5">
-                                {addToPlan.map((workout: IWorkout) => (
+                                {sortedWorkout.map((workout: IWorkout) => (
                                     <AddToPlanCard
                                         key={workout.id}
                                         workout={workout}
@@ -154,7 +200,7 @@ const MyPlan = () => {
                     <>
                         {saveForLater.length > 0 ? (
                             <div className="flex flex-col gap-5">
-                                {saveForLater.map((workout: IWorkout) => (
+                                {sortedWorkout.map((workout: IWorkout) => (
                                     <SaveForLaterCard
                                         key={workout.id}
                                         workout={workout}

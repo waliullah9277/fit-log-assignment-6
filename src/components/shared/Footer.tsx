@@ -21,7 +21,7 @@ const Footer = () => {
                         />
                     </div>
 
-                    <div className="text-2xl uppercase font-bold tracking-tight">
+                    <div className="text-2xl text-center uppercase font-bold tracking-tight">
                         Fitlog
                     </div>
                 </div>

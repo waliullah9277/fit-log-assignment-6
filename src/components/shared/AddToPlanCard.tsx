@@ -66,7 +66,7 @@ const AddToPlanCard = ({ workout }) => {
 
                     <Link
                         href={`/workouts/${workout.id}`}
-                        className="rounded-full border border-white/40 px-5 py-2.5 text-sm font-semibold text-white hover:border-white"
+                        className="rounded-full border border-white/40 px-5 py-1 text-sm font-semibold text-white hover:border-white"
                     >
                         View Details
                     </Link>
@@ -74,7 +74,7 @@ const AddToPlanCard = ({ workout }) => {
                     <button
                         onClick={() => markAsDoneFromPlan(workout.id)}
                         type="button"
-                        className="flex cursor-pointer items-center gap-2 rounded-full bg-[#C2F800] px-5 py-2.5 text-sm font-semibold text-black hover:bg-[#d5ff45]"
+                        className="flex cursor-pointer items-center gap-2 rounded-full bg-[#C2F800] px-5 py-1 text-sm font-semibold text-black hover:bg-[#d5ff45]"
                     >
                         <FiCheck />
                         Mark as Done
