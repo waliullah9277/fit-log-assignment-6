@@ -20,3 +20,20 @@
     color: #fff !important;
     font-size: 13px !important;
 }
+
+@media (max-width: 480px) {
+    .fitlog-toast-container {
+        top: 64px !important;
+        left: auto !important;
+        right: 8px !important;
+        width: 220px !important;
+        max-width: 220px !important;
+        margin: 0 !important;
+    }
+
+    .fitlog-toast-container .Toastify__toast {
+        width: 220px !important;
+        max-width: 220px !important;
+        margin: 0 !important;
+    }
+}

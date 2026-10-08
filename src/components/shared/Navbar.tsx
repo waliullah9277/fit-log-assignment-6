@@ -23,11 +23,10 @@ const Navbar = () => {
             <li>
                 <Link
                     href="/workouts"
-                    className={`transition-all duration-200 ${
-                        pathname.startsWith('/workouts')
+                    className={`transition-all duration-200 ${pathname.startsWith('/workouts')
                             ? 'bg-[#191C22] font-semibold text-[#C2F800]'
                             : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                    }`}
+                        }`}
                 >
                     Workouts
                 </Link>
@@ -36,11 +35,10 @@ const Navbar = () => {
             <li>
                 <Link
                     href="/my-plan"
-                    className={`transition-all duration-200 ${
-                        pathname.startsWith('/my-plan')
+                    className={`transition-all duration-200 ${pathname.startsWith('/my-plan')
                             ? 'bg-[#191C22] font-semibold text-[#C2F800]'
                             : 'text-gray-300 hover:bg-white/5 hover:text-white'
-                    }`}
+                        }`}
                 >
                     My Plan
                 </Link>
@@ -98,7 +96,7 @@ const Navbar = () => {
                                 alt="Fit Log Logo"
                             />
 
-                            <div className="text-2xl font-bold">
+                            <div className="text-lg md:text-2xl font-bold">
                                 FITLOG
                             </div>
                         </Link>
@@ -113,27 +111,27 @@ const Navbar = () => {
                 </div>
 
                 {/* Navbar End */}
-                <div className="navbar-end gap-1">
+
+                <div className="navbar-end gap-0.5 md:gap-1">
+
                     {/* Plan */}
                     <Link href="/my-plan">
                         <div
-                            className={`group flex cursor-pointer items-center gap-2 rounded-2xl px-4 py-2 transition-all duration-200 ${
-                                pathname.startsWith('/my-plan')
-                                    ? 'bg-[#252932]/10'
-                                    : 'hover:bg-white/5'
-                            }`}
+                            className={`group flex cursor-pointer items-center gap-1 rounded-xl px-2 py-1.5 transition-all duration-200 md:gap-2 md:rounded-2xl md:px-4 md:py-2 ${pathname.startsWith("/my-plan")
+                                    ? "bg-[#252932]/10"
+                                    : "hover:bg-white/5"
+                                }`}
                         >
                             <span
-                                className={`text-sm font-semibold ${
-                                    pathname.startsWith('/my-plan')
-                                        ? 'text-[#C2F800]'
-                                        : 'text-white'
-                                }`}
+                                className={`text-xs font-semibold md:text-sm ${pathname.startsWith("/my-plan")
+                                        ? "text-[#C2F800]"
+                                        : "text-white"
+                                    }`}
                             >
                                 Plan
                             </span>
 
-                            <span className="flex h-5 min-w-8 items-center justify-center rounded-lg bg-[#C2F800] px-1.5 text-xs font-bold text-black">
+                            <span className="flex h-4 min-w-5 items-center justify-center rounded-md bg-[#C2F800] px-1 text-[10px] font-bold leading-none text-black md:h-5 md:min-w-8 md:rounded-lg md:px-1.5 md:text-xs">
                                 {addToPlan.length}
                             </span>
                         </div>
@@ -142,22 +140,21 @@ const Navbar = () => {
                     {/* Saved */}
                     <Link href="/my-plan?tab=saved">
                         <div
-                            className={`group flex cursor-pointer items-center gap-2 rounded-2xl px-4 py-2 transition-all duration-200 ${
-                                pathname.startsWith('/my-plan')
-                                    ? 'hover:bg-white/5'
-                                    : 'hover:bg-white/5'
-                            }`}
+                            className="group flex cursor-pointer items-center gap-1 rounded-xl px-2 py-1.5 transition-all duration-200 hover:bg-white/5 md:gap-2 md:rounded-2xl md:px-4 md:py-2"
                         >
-                            <span className="text-sm font-semibold text-gray-300 transition-colors group-hover:text-white">
+                            <span className="text-xs font-semibold text-gray-300 transition-colors group-hover:text-white md:text-sm">
                                 Saved
                             </span>
 
-                            <span className="flex h-5 min-w-8 items-center justify-center rounded-lg border border-slate-300 bg-[#252932] px-1.5 text-xs font-bold text-gray-300">
+                            <span className="flex h-4 min-w-5 items-center justify-center rounded-md border border-slate-300 bg-[#252932] px-1 text-[10px] font-bold leading-none text-gray-300 md:h-5 md:min-w-8 md:rounded-lg md:px-1.5 md:text-xs">
                                 {saveForLater.length}
                             </span>
                         </div>
                     </Link>
+
                 </div>
+
+
             </div>
         </nav>
     );

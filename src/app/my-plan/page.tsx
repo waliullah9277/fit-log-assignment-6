@@ -103,42 +103,46 @@ const MyPlan = () => {
             </div>
 
             {/* Tabs */}
-            <div className="mb-6 flex justify-between items-center">
+            <div className="mb-6 flex items-center justify-between gap-2">
+
+                {/* Plan Tabs */}
                 <div className="flex w-fit rounded-xl border border-white/10 bg-[#191C22] p-1">
+
                     {/* Today's Plan */}
                     <button
                         type="button"
-                        onClick={() => setActiveTab('today')}
-                        className={`rounded-lg px-5 cursor-pointer py-1.5 text-sm font-semibold transition-all ${activeTab === 'today'
-                            ? 'bg-[#15171D] text-[#C2F800]'
-                            : 'text-gray-400 hover:text-white'
+                        onClick={() => setActiveTab("today")}
+                        className={`cursor-pointer rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all md:px-5 md:text-sm ${activeTab === "today"
+                                ? "bg-[#15171D] text-[#C2F800]"
+                                : "text-gray-400 hover:text-white"
                             }`}
                     >
-                        {`Today's Plan`}
+                        {`Today's`} Plan
                     </button>
 
                     {/* Saved */}
                     <button
                         type="button"
-                        onClick={() => setActiveTab('saved')}
-                        className={`rounded-lg px-5 cursor-pointer py-1.5 text-sm font-semibold transition-all ${activeTab === 'saved'
-                            ? 'bg-[#15171D] text-[#C2F800]'
-                            : 'text-gray-400 hover:text-white'
+                        onClick={() => setActiveTab("saved")}
+                        className={`cursor-pointer rounded-lg px-2.5 py-1.5 text-xs font-semibold transition-all md:px-5 md:text-sm ${activeTab === "saved"
+                                ? "bg-[#15171D] text-[#C2F800]"
+                                : "text-gray-400 hover:text-white"
                             }`}
                     >
                         Saved
                     </button>
+
                 </div>
 
                 {/* Sort By */}
-                <div className="flex items-center gap-3 rounded-xl border border-white/10 bg-[#191C22] p-1">
-                    <div className="px-3">
-                        <h2 className="text-sm font-semibold text-gray-400">
+                <div className="flex items-center gap-1 rounded-xl border border-white/10 bg-[#191C22] p-1 md:gap-3">
+
+                    <div className="px-1.5 md:px-3">
+                        <h2 className="text-xs font-semibold text-gray-400 md:text-sm">
                             Sort By
                         </h2>
                     </div>
-                    
-                    
+
                     <select
                         value={sortBy}
                         onChange={(e) =>
@@ -146,15 +150,17 @@ const MyPlan = () => {
                                 e.target.value as "duration" | "calories" | "rating"
                             )
                         }
-                        className="cursor-pointer rounded-lg border-0 bg-[#15171D] px-4 py-1.5 text-sm font-semibold text-[#C2F800] outline-none transition-all focus:ring-1 focus:ring-[#C2F800]"
+                        className="cursor-pointer rounded-lg border-0 bg-[#15171D] px-2 py-1.5 text-xs font-semibold text-[#C2F800] outline-none transition-all focus:ring-1 focus:ring-[#C2F800] md:px-4 md:text-sm"
                     >
-                        <option value="duration"> Duration</option>
+                        <option value="duration">Duration</option>
                         <option value="calories">Calories</option>
                         <option value="rating">Rating</option>
                     </select>
+
                 </div>
 
             </div>
+
 
             {/* Tab Content */}
             <div className="rounded-2xl">
