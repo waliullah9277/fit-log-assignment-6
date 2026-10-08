@@ -45,7 +45,7 @@ const Navbar = () => {
     );
 
     return (
-        <nav className="sticky top-0 z-50 border-b border-white/10 bg-[#090A0D]/95 shadow-sm backdrop-blur-md">
+        <nav className="sticky top-0 z-50 w-full border-b border-white/10 bg-[#090A0D] shadow-sm backdrop-blur-md">
             <div className="navbar container mx-auto">
 
                 {/* Navbar Start */}
@@ -114,7 +114,7 @@ const Navbar = () => {
                 <div className="navbar-end gap-0.5 md:gap-1">
 
                     {/* Plan */}
-                    <Link href="/my-plan">
+                    <Link href="/my-plan" className="touch-manipulation select-none">
                         <div
                             className={`group flex cursor-pointer items-center gap-1 rounded-xl px-2 py-1.5 transition-all duration-200 md:gap-2 md:rounded-2xl md:px-4 md:py-2 ${pathname.startsWith("/my-plan")
                                     ? "bg-[#252932]/10"
@@ -137,7 +137,7 @@ const Navbar = () => {
                     </Link>
 
                     {/* Saved */}
-                    <Link href="/my-plan?tab=saved">
+                    <Link href="/my-plan?tab=saved" className="touch-manipulation select-none">
                         <div className="group flex cursor-pointer items-center gap-1 rounded-xl px-2 py-1.5 transition-all duration-200 hover:bg-white/5 md:gap-2 md:rounded-2xl md:px-4 md:py-2">
                             <span className="text-xs font-semibold text-gray-300 transition-colors group-hover:text-white md:text-sm">
                                 Saved
